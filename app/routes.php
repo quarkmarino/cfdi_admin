@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::get('/', function(){
 	return View::make('hello');
+});
+
+
+Route::group(['prefix' => 'v0'], function(){
+	Route::group(['namespace' => 'Controllers\API'], function(){
+		Route::group(['namespace' => 'Business'], function(){
+			Route::resource('User', 'UserController', ['except' => ['create', 'update']]);
+			Route::resource('Contributor', 'ContributorController', ['except' => ['create', 'update']]);
+			Route::resource('Invoice', 'InvoiceController', ['except' => ['create', 'update']]);
+		});
+	});
 });
