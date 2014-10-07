@@ -24,7 +24,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'escuincles_db',
+			'database'  => 'cfdi_admin',
 			'username'  => 'root',
 			'password'  => '2515',
 			'charset'   => 'utf8',
