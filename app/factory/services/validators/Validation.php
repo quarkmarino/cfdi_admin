@@ -1,9 +1,9 @@
 <?php
-namespace Repositories\Services\Validators;
+namespace Factory\Services\Validators;
 
 use Exception;
 use Validator;
-use Repositories\Errors\Exceptions\ValidationException as ValidationException;
+use Factory\Errors\Exceptions\ValidationException as ValidationException;
 
 abstract class Validation{
 
@@ -68,7 +68,7 @@ abstract class Validation{
 	public function __get($key){
 			if ( ! isset($this->data[$key]))
 			{
-					throw new Exception("Could not get [{$key}] from Repositories\Services\Validation data array.");
+					throw new Exception("Could not get [{$key}] from Factory\Services\Validation data array.");
 			}
 
 			return $this->data[$key];

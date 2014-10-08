@@ -2,23 +2,31 @@
 namespace Controllers\Api\V0\Business;
 
 use Controllers\BaseController;
+use Factory\Interfaces\UserInterface;
 
 class UsersController extends BaseController {
 
+	protected $user;
+
+	public function __construct(userInterface $user){
+  	$this->user = $user;
+	}
+
 	/**
 	 * Display a listing of the resource.
-	 * GET /businessusers
+	 * GET /users
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		//
+		$users = $this->user->findAll();
+		return $users->toJson();
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /businessusers/create
+	 * GET /users/create
 	 *
 	 * @return Response
 	 */
@@ -29,7 +37,7 @@ class UsersController extends BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /businessusers
+	 * POST /users
 	 *
 	 * @return Response
 	 */
@@ -40,7 +48,7 @@ class UsersController extends BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /businessusers/{id}
+	 * GET /users/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -52,7 +60,7 @@ class UsersController extends BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /businessusers/{id}/edit
+	 * GET /users/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -64,7 +72,7 @@ class UsersController extends BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /businessusers/{id}
+	 * PUT /users/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -76,7 +84,7 @@ class UsersController extends BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /businessusers/{id}
+	 * DELETE /users/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

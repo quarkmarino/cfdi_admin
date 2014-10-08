@@ -1,9 +1,9 @@
 <?php
-namespace Repositories\ORM\Eloquent\Filesystem;
+namespace Factory\ORM\Eloquent\Filesystem;
 
-use Repositories\Interfaces\FileInterface;
-use Repositories\Services\Validators\FileValidator;
-use Repositories\Errors\Exceptions\NotFoundException as NotFoundException;
+use Factory\Interfaces\FileInterface;
+use Factory\Services\Validators\FileValidator;
+use Factory\Errors\Exceptions\NotFoundException as NotFoundException;
 use Authority\Authority as Authority;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
  

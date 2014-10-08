@@ -1,5 +1,5 @@
 <?php
-namespace Repositories\Errors\Exceptions;
+namespace Factory\Errors\Exceptions;
 
 use Illuminate\Validation\Validator as Validator;
 use Exception;

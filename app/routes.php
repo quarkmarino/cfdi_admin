@@ -19,7 +19,7 @@ Route::get('/', function(){
 //Route::group(['domain' => 'api.cfdi'], function(){
 	Route::group(['prefix' => 'v0', 'namespace' => 'Controllers\Api\V0'], function(){
 		Route::group(['namespace' => 'Business'], function(){
-			Route::resource('User', 'UserController', ['except' => ['create', 'update']]);
+			Route::resource('User', 'UsersController', ['except' => ['create', 'update']]);
 			Route::resource('Contributor', 'ContributorController', ['except' => ['create', 'update']]);
 			Route::resource('Invoice', 'InvoiceController', ['except' => ['create', 'update']]);
 		});

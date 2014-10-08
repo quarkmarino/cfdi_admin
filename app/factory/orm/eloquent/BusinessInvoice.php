@@ -1,9 +1,9 @@
 <?php
-namespace Repositories\ORM\Eloquent\Business;
+namespace Factory\ORM\Eloquent;
 
-use Repositories\Interfaces\InvoiceInterface;
-use Repositories\Services\Validators\InvoiceValidator;
-use Repositories\Errors\Exceptions\NotFoundException as NotFoundException;
+use Factory\Interfaces\InvoiceInterface;
+use Factory\Services\Validators\InvoiceValidator;
+use Factory\Errors\Exceptions\NotFoundException as NotFoundException;
 use Authority\Authority as Authority;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
  

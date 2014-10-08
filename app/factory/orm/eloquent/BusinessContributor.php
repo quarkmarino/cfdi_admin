@@ -1,9 +1,9 @@
 <?php
-namespace Repositories\ORM\Eloquent\Business;
+namespace Factory\ORM\Eloquent;
 
-use Repositories\Interfaces\ContributorInterface;
-use Repositories\Services\Validators\ContributorValidator;
-use Repositories\Errors\Exceptions\NotFoundException as NotFoundException;
+use Factory\Interfaces\ContributorInterface;
+use Factory\Services\Validators\ContributorValidator;
+use Factory\Errors\Exceptions\NotFoundException as NotFoundException;
 use Authority\Authority as Authority;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
  

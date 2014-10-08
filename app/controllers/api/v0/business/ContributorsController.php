@@ -2,12 +2,19 @@
 namespace Controllers\Api\V0\Business;
 
 use Controllers\BaseController;
+use Factory\Interfaces\ContributorInterface;
 
 class ContributorsController extends BaseController {
 
+	protected $contributor;
+
+	public function __construct(ContributorInterface $contributor){
+  	$this->contributor = $contributor;
+	}
+
 	/**
 	 * Display a listing of the resource.
-	 * GET /businesscontributors
+	 * GET /contributors
 	 *
 	 * @return Response
 	 */
@@ -18,7 +25,7 @@ class ContributorsController extends BaseController {
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /businesscontributors/create
+	 * GET /contributors/create
 	 *
 	 * @return Response
 	 */
@@ -29,7 +36,7 @@ class ContributorsController extends BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /businesscontributors
+	 * POST /contributors
 	 *
 	 * @return Response
 	 */
@@ -40,7 +47,7 @@ class ContributorsController extends BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /businesscontributors/{id}
+	 * GET /contributors/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -52,7 +59,7 @@ class ContributorsController extends BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /businesscontributors/{id}/edit
+	 * GET /contributors/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -64,7 +71,7 @@ class ContributorsController extends BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /businesscontributors/{id}
+	 * PUT /contributors/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -76,7 +83,7 @@ class ContributorsController extends BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /businesscontributors/{id}
+	 * DELETE /contributors/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

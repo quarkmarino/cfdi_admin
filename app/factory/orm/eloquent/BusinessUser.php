@@ -1,9 +1,9 @@
 <?php
-namespace Repositories\ORM\Eloquent\Business;
+namespace Factory\ORM\Eloquent;
 
-use Repositories\Interfaces\UserInterface;
-use Repositories\Services\Validators\UserValidator;
-use Repositories\Errors\Exceptions\NotFoundException as NotFoundException;
+use Factory\Interfaces\UserInterface;
+use Factory\Services\Validators\UserValidator;
+use Factory\Errors\Exceptions\NotFoundException as NotFoundException;
 use Authority\Authority as Authority;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
  
@@ -35,7 +35,7 @@ class User implements UserInterface {
 	}
 
 	public function findAll(){
-		return \Models\User::orderBy('created_at', 'asc')->paginate(15);
+		return \Models\User::orderBy('created_at', 'asc')->get();//->paginate(15);
 	}
 
 	public function findAllActive(){

@@ -1,8 +1,8 @@
 <?php
 
-namespace Repositories\Interfaces\Business;
+namespace Factory\Interfaces;
  
-interface InvoiceInterface {
+interface DirectoryInterface {
   public function findById($id);
   //public function findAllWith($with);
   public function findAll();

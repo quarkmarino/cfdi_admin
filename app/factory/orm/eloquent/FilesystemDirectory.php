@@ -1,9 +1,9 @@
 <?php
-namespace Repositories\ORM\Eloquent\Directorysystem;
+namespace Factory\ORM\Eloquent\Directorysystem;
 
-use Repositories\Interfaces\DirectoryInterface;
-use Repositories\Services\Validators\DirectoryValidator;
-use Repositories\Errors\Exceptions\NotFoundException as NotFoundException;
+use Factory\Interfaces\DirectoryInterface;
+use Factory\Services\Validators\DirectoryValidator;
+use Factory\Errors\Exceptions\NotFoundException as NotFoundException;
 use Authority\Authority as Authority;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
  

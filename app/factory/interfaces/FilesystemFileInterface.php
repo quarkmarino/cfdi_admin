@@ -1,6 +1,6 @@
 <?php
 
-namespace Repositories\Interfaces\Filysystem;
+namespace Factory\Interfaces;
  
 interface FileInterface {
   public function findById($id);
