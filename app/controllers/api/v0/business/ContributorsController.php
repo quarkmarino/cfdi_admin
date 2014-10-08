@@ -3,6 +3,7 @@ namespace Controllers\Api\V0\Business;
 
 use Controllers\BaseController;
 use Factory\Interfaces\ContributorInterface;
+use Input;
 
 class ContributorsController extends BaseController {
 
@@ -18,20 +19,9 @@ class ContributorsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /contributors/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+	public function index(){
+		$contributors = $this->contributor->findAll();
+		return $contributors->toJson();
 	}
 
 	/**
@@ -40,9 +30,10 @@ class ContributorsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
+	public function store(){
+		$input = Input::all();
+		$contributor = $this->contributor->store(1, $input);
+		return $contributor->toJson();
 	}
 
 	/**
@@ -52,8 +43,7 @@ class ContributorsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
+	public function show($id){
 		//
 	}
 
@@ -64,8 +54,7 @@ class ContributorsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
+	public function edit($id){
 		//
 	}
 
@@ -76,8 +65,7 @@ class ContributorsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
+	public function update($id){
 		//
 	}
 
@@ -88,8 +76,7 @@ class ContributorsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
+	public function destroy($id){
 		//
 	}
 

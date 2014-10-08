@@ -9,10 +9,13 @@ class BusinessUsersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 1) as $index)
 		{
-			BusinessUser::create([
-
+			Models\User::create([
+				'username' => 'admin',
+				'password' => Hash::make('2515'),
+				'status' => 1,
+				'email' => 'quarkmarino@gmail.com'
 			]);
 		}
 	}

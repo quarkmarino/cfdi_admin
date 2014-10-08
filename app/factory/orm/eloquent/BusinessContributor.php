@@ -35,7 +35,7 @@ class Contributor implements ContributorInterface {
 	}
 
 	public function findAll(){
-		return \Models\Contributor::orderBy('created_at', 'asc')->paginate(15);
+		return \Models\Contributor::orderBy('created_at', 'asc')->get();//->paginate(15);
 	}
 
 	public function findAllActive(){
@@ -55,8 +55,8 @@ class Contributor implements ContributorInterface {
 	*/
 
 	public function store($author_id, $data){
-		//dd($author_id);
-		$data['Contributor_id'] = $author_id;
+		dd($data);
+		$data['user_id'] = $author_id;
 		$this->validation($data);
 		return \Models\Contributor::create($data);
 	}

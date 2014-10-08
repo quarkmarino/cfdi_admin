@@ -3,7 +3,7 @@ namespace Models;
 
 use Eloquent;
 
-class FilesystemDirectory extends Eloquent {
+class Directory extends Eloquent {
 	protected $table = 'filesystem_directory';
 
 	protected $fillable = [];

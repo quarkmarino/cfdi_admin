@@ -4,7 +4,7 @@ namespace Controllers\Api\V0\Business;
 use Controllers\BaseController;
 use Factory\Interfaces\UserInterface;
 
-class UsersController extends BaseController {
+class UsersController extends BaseController{
 
 	protected $user;
 
@@ -18,21 +18,9 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
+	public function index(){
 		$users = $this->user->findAll();
 		return $users->toJson();
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /users/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
 	}
 
 	/**
@@ -41,9 +29,10 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
+	public function store(){
+		$input = Input::all();
+		$user = $this->user->store(\Auth::user()->id, $input);
+		return $user->toJson();
 	}
 
 	/**
@@ -53,20 +42,7 @@ class UsersController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /users/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
+	public function show($id){
 		//
 	}
 
@@ -77,8 +53,7 @@ class UsersController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
+	public function update($id){
 		//
 	}
 
@@ -89,8 +64,7 @@ class UsersController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
+	public function destroy($id){
 		//
 	}
 
