@@ -16,15 +16,15 @@ class Contributor implements ContributorInterface {
 	}
 
 	public function findById($id){
-		$Contributor = \Models\Contributor::whereId($id)->first();
-		if(!$Contributor) throw new NotFoundException('Contributor Not Found');
-		return $Contributor;
+		$contributor = \Models\Contributor::whereId($id)->first();
+		if(!$contributor) throw new NotFoundException('Contributor Not Found');
+		return $contributor;
 	}
 
 	public function findByIdActive($id){
-		$Contributor = \Models\Contributor::active()->whereId($id)->first();
-		if(!$Contributor) throw new NotFoundException('Contributor Not Found');
-		return $Contributor;
+		$contributor = \Models\Contributor::active()->whereId($id)->first();
+		if(!$contributor) throw new NotFoundException('Contributor Not Found');
+		return $contributor;
 	}
 
 	public function find($ammount = 4){
@@ -54,11 +54,15 @@ class Contributor implements ContributorInterface {
 	 * @return the created Contributor model
 	*/
 
-	public function store($author_id, $data){
-		dd($data);
-		$data['user_id'] = $author_id;
+	public function store($owner_id, $data){
+		$contributor = new \Models\Contributor;
+		$contributor->user_id = $owner_id;
+
 		$this->validation($data);
-		return \Models\Contributor::create($data);
+		$contributor->fill($data);
+		$contributor->save($data);
+		return $contributor;
+		//return \Models\Contributor::create($data);
 	}
 
 	/**
@@ -68,12 +72,13 @@ class Contributor implements ContributorInterface {
 	 * @return the updated Contributor model 
 	*/
 
-	public function update($id,$data){
-		$Contributor = $this->findById($id);
+	public function update($id = 1, $data){
+		$contributor = $this->findById($id);
 		$this->validation($data);
-		$Contributor->fill($data);
-		$Contributor->save();
-		return $Contributor;
+
+		$contributor->fill($data);
+		$contributor->save();
+		return $contributor;
 	}
 
 	/**
@@ -83,12 +88,12 @@ class Contributor implements ContributorInterface {
 	*/
 
 	public function destroy($id){
-		$Contributor = $this->findById($id);
-		return $Contributor->delete();
+		$contributor = $this->findById($id);
+		return $contributor->delete();
 	}
 
 	public function validation($data){
-		return $this->validator->validate($data); 
+		return $this->validator->validate($data);
 	}
 
 	public function instance($data = array()){

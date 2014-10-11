@@ -44,20 +44,9 @@ class ContributorsController extends BaseController {
 	 * @return Response
 	 */
 	public function show($id){
-		//
+		$contributor = $this->contributor->findById($id);
+		return $contributor->toJson();
 	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /contributors/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id){
-		//
-	}
-
 	/**
 	 * Update the specified resource in storage.
 	 * PUT /contributors/{id}
@@ -66,7 +55,9 @@ class ContributorsController extends BaseController {
 	 * @return Response
 	 */
 	public function update($id){
-		//
+		$input = Input::all();
+		$contributor = $this->contributor->update($id, $input);
+		return $contributor->toJson();
 	}
 
 	/**
@@ -77,7 +68,7 @@ class ContributorsController extends BaseController {
 	 * @return Response
 	 */
 	public function destroy($id){
-		//
+		$this->contributor->destroy($id);
 	}
 
 }

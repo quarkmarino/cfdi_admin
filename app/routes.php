@@ -15,13 +15,14 @@ Route::get('/', function(){
 	return View::make('hello');
 });
 
-
 //Route::group(['domain' => 'api.cfdi'], function(){
 	Route::group(['prefix' => 'v0', 'namespace' => 'Controllers\Api\V0'], function(){
+		Route::group(['namespace' => 'App'], function(){
+			Route::resource('users', 'UsersController', ['except' => ['create', 'edit']]);
+		});
 		Route::group(['namespace' => 'Business'], function(){
-			Route::resource('users', 'UsersController', ['except' => ['create', 'update']]);
-			Route::resource('contributors', 'ContributorsController', ['except' => ['create', 'update']]);
-			Route::resource('invoices', 'InvoicesController', ['except' => ['create', 'update']]);
+			Route::resource('contributors', 'ContributorsController', ['except' => ['create', 'edit']]);
+			Route::resource('contribuors.invoices', 'InvoicesController', ['except' => ['create', 'edit']]);
 		});
 	});
 //});
