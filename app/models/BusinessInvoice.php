@@ -7,6 +7,7 @@ class Invoice extends Eloquent {
 	protected $table = 'business_invoices';
 
 	protected $fillable = [];
+	protected $hidden = [ 'pac_id', 'created_at', 'updated_at'];
 
 	public function receiver(){
 		return $this->hasOne('Models\Contributor', 'receiver_id');

@@ -15,15 +15,16 @@ class CreateBusinessInvoicesTable extends Migration {
 		Schema::create('business_invoices', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->binary('uuid');
-			$table->integer('receiver_id')->unsigned();;
-			$table->integer('issuer_id')->unsigned();;
-			$table->integer('file_id')->unsigned();;
-			$table->integer('pac_id')->unsigned();;
+			$table->string('uuid', 36);
+			$table->integer('receiver_id')->unsigned();
+			$table->integer('issuer_id')->unsigned();
+			$table->integer('file_id')->unsigned()->nullable()->default(null);
+			$table->integer('pac_id')->unsigned();
 			$table->datetime('issuing_datetime');
 			$table->datetime('certitication_datetime');
-			$table->decimal('ammount', 9, 3);
-			$table->integer('effect');
+			$table->decimal('ammount', 9, 2);
+			$table->integer('effect')->nullable()->default(null);	//ingreso:1, egreso:-1
+			$table->datetime('cancelation_datetime')->nullable()->default(null);
 			$table->timestamps();
 
 			$table->foreign('receiver_id')->references('id')->on('business_contributors')->onUpdate('cascade');

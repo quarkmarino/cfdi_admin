@@ -9,5 +9,6 @@ class EloquentProvider extends ServiceProvider {
 	public function register(){
 		$this->app->bind( 'Factory\\Interfaces\\UserInterface', 'Factory\\ORM\\Eloquent\\User' );
 		$this->app->bind( 'Factory\\Interfaces\\ContributorInterface', 'Factory\\ORM\\Eloquent\\Contributor' );
+		$this->app->bind( 'Factory\\Interfaces\\InvoiceInterface', 'Factory\\ORM\\Eloquent\\Invoice' );
 	}
 }

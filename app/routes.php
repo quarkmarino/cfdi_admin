@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function(){
+	Queue::push('Factory\Workers\Heavy@Task', array('message' => 'This is really heavy!! at '));
 	return View::make('hello');
 });
 
@@ -22,7 +23,7 @@ Route::get('/', function(){
 		});
 		Route::group(['namespace' => 'Business'], function(){
 			Route::resource('contributors', 'ContributorsController', ['except' => ['create', 'edit']]);
-			Route::resource('contribuors.invoices', 'InvoicesController', ['except' => ['create', 'edit']]);
+			Route::resource('contributors.invoices', 'Contributor\InvoicesController', ['except' => ['create', 'edit']]);
 		});
 	});
 //});

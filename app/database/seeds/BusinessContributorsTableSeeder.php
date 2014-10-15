@@ -9,10 +9,14 @@ class BusinessContributorsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 5) as $index)
 		{
-			BusinessContributor::create([
-
+			Models\Contributor::create([
+				'user_id' => 1,
+				'rfc' => $faker->lexify($string = '????').$faker->time($format = 'Ymd', $max = 'now').$faker->randomElement(['H', 'M']).$faker->lexify($string = '??'),
+				'name' => $faker->word,
+				'password' => Crypt::encrypt($faker->word),
+				'status' => 1
 			]);
 		}
 	}

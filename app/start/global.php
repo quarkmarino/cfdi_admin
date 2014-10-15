@@ -52,6 +52,11 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+/*App::error(function(RuntimeException $exception)
+{
+  return Response::json();
+});*/
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler

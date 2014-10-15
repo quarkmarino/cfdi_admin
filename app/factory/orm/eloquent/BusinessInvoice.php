@@ -35,7 +35,8 @@ class Invoice implements InvoiceInterface {
 	}
 
 	public function findAll(){
-		return \Models\Invoice::orderBy('created_at', 'asc')->paginate(15);
+		return \Models\Invoice::orderBy('created_at', 'asc')
+		->paginate(15);
 	}
 
 	public function findAllActive(){
@@ -43,6 +44,12 @@ class Invoice implements InvoiceInterface {
 		->orderBy('created_at', 'asc')
 		->get();
 	}
+
+	public function findAllInContributor($contributor_id){
+    return \Models\Invoice::where('receiver_id', $contributor_id)->orWhere('issuer_id', $contributor_id)
+    ->orderBy('created_at', 'asc')->get();
+    //->paginate(15);
+  }
 
 	public function paginate($limit = null){
 		return \Models\Invoice::paginate($limit);
