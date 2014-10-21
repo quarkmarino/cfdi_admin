@@ -27,8 +27,8 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'jam' => array('olimpo'),
-	'qrk' => array('tiny-pc'),
-	'local' => array('homestead'),
+	'qrk' => array('precise64'),
+	'local' => array('workstation'),
 
 ));
 

@@ -7,7 +7,8 @@
 		"laravel/framework": "4.2.*",
 		"nategood/httpful": "*",
 		"machuga/authority-l4" : "dev-master",
-		"nategood/httpful": "*"
+		"nategood/httpful": "*",
+		"pda/pheanstalk": "2.1.*"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
@@ -15,13 +16,13 @@
 	},
 	"autoload": {
 		"classmap": [
-			"app/commands",
-			"app/controllers",
-			"app/models",
-			"app/database/migrations",
-			"app/database/seeds",
-			"app/tests/TestCase.php",
-			"app/factory"
+			"app/backend/laravel/commands",
+			"app/backend/laravel/controllers",
+			"app/backend/laravel/models",
+			"app/backend/laravel/database/migrations",
+			"app/backend/laravel/database/seeds",
+			"app/backend/laravel/tests/TestCase.php",
+			"app/backend/laravel/factory"
 		]
 	},
 	"scripts": {

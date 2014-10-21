@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function(){
-	//Queue::push('Factory\Workers\Heavy@Task', array('message' => 'This is really heavy!! at '));
+	Queue::push('Factory\Workers\Heavy@Task', array('message' => 'This is really heavy!! at '));
 	return View::make('hello');
 });
 
